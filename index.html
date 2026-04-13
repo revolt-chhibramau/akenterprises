@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Revolt Hub Chhibramau | AK Enterprises | Official Revolt Dealer</title>
+<meta name="description" content="AK Enterprises - Official Revolt Electric Motorcycle Dealer in Chhibramau, Kannauj. Serving Farrukhabad, Auraiya, Hardoi & Kannauj."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --red:#E8000D;--red-dk:#B50009;--red-glow:rgba(232,0,13,.15);
+  --bg:#F7F6F3;--bg2:#fff;--bg3:#EFEDE8;
+  --dark:#0D0D0D;--dark2:#181818;--charcoal:#2B2B2B;
+  --text:#1A1A1A;--muted:#696969;--border:#E2E0DB;
+  --green:#1A8A4A;--accent:#FF6B00;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;cursor:none}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg3)}
+::-webkit-scrollbar-thumb{background:var(--red)}
+
+/* CURSOR */
+#cur{position:fixed;width:10px;height:10px;background:var(--red);border-radius:50%;pointer-events:none;z-index:99999;top:0;left:0;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+#cur-r{position:fixed;width:30px;height:30px;border:1.5px solid rgba(232,0,13,.6);border-radius:50%;pointer-events:none;z-index:99998;top:0;left:0;transform:translate(-50%,-50%)}
+body.hov #cur{width:18px;height:18px}
+body.hov #cur-r{width:46px;height:46px;opacity:.4}
+
+/* LOADER */
+#loader{position:fixed;inset:0;background:var(--dark);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px}
+.ld-wrap{display:flex;align-items:center;gap:14px}
+.ld-wrap img{height:36px;filter:brightness(0) invert(1)}
+.ld-sep{width:1px;height:36px;background:rgba(255,255,255,.2)}
+.ld-info{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;color:#fff;letter-spacing:.1em;text-transform:uppercase;line-height:1.2}
+.ld-info small{display:block;font-size:.6rem;font-weight:400;color:rgba(255,255,255,.4);letter-spacing:.15em;margin-top:2px}
+.ld-prog{width:160px;height:2px;background:rgba(255,255,255,.1);border-radius:1px;overflow:hidden}
+.ld-bar{height:100%;background:var(--red);width:0;transition:width .07s linear}
+.ld-note{font-size:.6rem;letter-spacing:.2em;color:rgba(255,255,255,.3);text-transform:uppercase}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;transition:background .3s,box-shadow .3s,height .3s}
+nav.s{background:#fff;box-shadow:0 1px 24px rgba(0,0,0,.08);height:62px}
+.nb{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nb img{height:28px;transition:filter .3s}
+nav:not(.s) .nb img{filter:brightness(0) invert(1)}
+nav.s .nb img{filter:brightness(0)}
+.nb-div{width:1px;height:30px;background:rgba(255,255,255,.2)}
+nav.s .nb-div{background:rgba(0,0,0,.12)}
+.nb-txt{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;line-height:1.2}
+nav:not(.s) .nb-txt{color:#fff}
+nav.s .nb-txt{color:var(--dark)}
+.nb-txt small{display:block;font-size:.58rem;font-weight:400;opacity:.55;letter-spacing:.14em}
+.nl{display:flex;align-items:center;gap:2rem}
+.nl a{font-size:.78rem;font-weight:500;letter-spacing:.05em;text-decoration:none;cursor:none;transition:color .2s}
+nav:not(.s) .nl a{color:rgba(255,255,255,.75)}
+nav:not(.s) .nl a:hover{color:#fff}
+nav.s .nl a{color:var(--muted)}
+nav.s .nl a:hover{color:var(--red)}
+.nl .nbtn{background:var(--red)!important;color:#fff!important;padding:.45rem 1.3rem;border-radius:4px;font-weight:600!important}
+.nl .nbtn:hover{background:var(--red-dk)!important}
+.ham{display:none;flex-direction:column;gap:5px;cursor:none;padding:4px}
+.ham span{display:block;height:2px;border-radius:1px;transition:all .3s}
+.ham span:nth-child(1){width:22px}
+.ham span:nth-child(2){width:15px}
+.ham span:nth-child(3){width:22px}
+nav:not(.s) .ham span{background:#fff}
+nav.s .ham span{background:var(--dark)}
+.ham.o span:nth-child(1){width:22px;transform:rotate(45deg) translate(5px,5px)}
+.ham.o span:nth-child(2){opacity:0}
+.ham.o span:nth-child(3){width:22px;transform:rotate(-45deg) translate(5px,-5px)}
+.mm{display:none;position:fixed;inset:0;background:#fff;z-index:998;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem}
+.mm.o{display:flex}
+.mm a{font-family:'Barlow Condensed',sans-serif;font-size:2.4rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--dark);text-decoration:none;cursor:none;transition:color .2s}
+.mm a:hover{color:var(--red)}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;background:var(--dark)}
+.hbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;opacity:.75}
+.hov1{position:absolute;inset:0;background:linear-gradient(105deg,rgba(5,5,5,.9) 0%,rgba(5,5,5,.55) 52%,rgba(5,5,5,.15) 100%)}
+.hov2{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,5,.8) 0%,transparent 55%)}
+.hc{position:relative;z-index:2;padding:0 5% 7rem;max-width:700px}
+.hbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,0,13,.12);border:1px solid rgba(232,0,13,.35);border-radius:3px;padding:.3rem .9rem;margin-bottom:1.5rem}
+.hbadge span{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:600}
+.hbadge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);animation:pd 1.6s infinite}
+@keyframes pd{0%,100%{opacity:1}50%{opacity:.3}}
+.hh1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(3rem,7.5vw,7.5rem);font-weight:800;line-height:.88;letter-spacing:.01em;color:#fff;margin-bottom:1.5rem;text-transform:uppercase}
+.hh1 em{color:var(--red);font-style:normal}
+.hsub{font-size:1rem;color:rgba(255,255,255,.7);line-height:1.75;margin-bottom:2.5rem;max-width:480px}
+.hbtns{display:flex;gap:1rem;flex-wrap:wrap}
+.br{display:inline-flex;align-items:center;gap:.45rem;background:var(--red);color:#fff;padding:.8rem 2rem;border-radius:4px;font-weight:600;font-size:.82rem;letter-spacing:.06em;text-decoration:none;cursor:none;transition:all .2s;text-transform:uppercase}
+.br:hover{background:var(--red-dk);transform:translateY(-2px)}
+.bw{display:inline-flex;align-items:center;gap:.45rem;background:rgba(255,255,255,.08);color:#fff;padding:.8rem 2rem;border-radius:4px;font-weight:600;font-size:.82rem;letter-spacing:.06em;text-decoration:none;cursor:none;transition:all .2s;text-transform:uppercase;border:1.5px solid rgba(255,255,255,.25);backdrop-filter:blur(6px)}
+.bw:hover{background:rgba(255,255,255,.18);transform:translateY(-2px)}
+.hstats{position:absolute;bottom:5rem;right:5%;z-index:2;display:flex;gap:3rem}
+.hs{text-align:right}
+.hs-n{font-family:'Rajdhani',sans-serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1}
+.hs-l{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:2px}
+.hscroll{position:absolute;bottom:2.5rem;right:5%;z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px}
+.hscroll span{font-size:.58rem;letter-spacing:.18em;color:rgba(255,255,255,.4);text-transform:uppercase;writing-mode:vertical-rl}
+.sbar{width:1px;height:48px;background:linear-gradient(var(--red),transparent);animation:sb 2s infinite}
+@keyframes sb{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(max-width:768px){.hstats{display:none}.hscroll{display:none}}
+
+/* MARQUEE */
+.mq{background:var(--red);overflow:hidden;padding:.5rem 0}
+.mq-track{display:flex}
+.mq-inner{display:flex;gap:2.5rem;flex-shrink:0;padding-right:2.5rem;animation:mqA 25s linear infinite;white-space:nowrap}
+@keyframes mqA{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+.mq-item{display:inline-flex;align-items:center;gap:.6rem;font-family:'Rajdhani',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+.mq-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.45);flex-shrink:0}
+
+/* SECTION */
+section{padding:5.5rem 5%}
+.sl{display:flex;align-items:center;gap:.7rem;margin-bottom:.7rem}
+.sl-line{width:28px;height:2px;background:var(--red)}
+.sl span{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:600}
+.sh{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,4.5vw,4rem);font-weight:800;text-transform:uppercase;line-height:.93;letter-spacing:.02em;color:var(--dark);margin-bottom:1.2rem}
+.sh span{color:var(--red)}
+.ssub{font-size:.93rem;color:var(--muted);line-height:1.75;max-width:500px}
+
+/* BIKES */
+#bikes{background:var(--dark2);padding:5.5rem 5%}
+#bikes .sh{color:#fff}
+.bk-list{margin-top:3rem;display:flex;flex-direction:column;gap:2px}
+.bk{display:grid;grid-template-columns:1fr 1fr;gap:0;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);overflow:hidden;transition:border-color .3s}
+.bk:hover{border-color:rgba(232,0,13,.28)}
+.bk.flip{direction:rtl}
+.bk.flip>*{direction:ltr}
+.bkimg{background:linear-gradient(135deg,#0e0e0e 0%,#1b0002 100%);display:flex;align-items:center;justify-content:center;padding:2.5rem 2rem;min-height:320px;position:relative;overflow:hidden}
+.bkimg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 60%,rgba(232,0,13,.07),transparent 70%)}
+.bkimg img{width:100%;max-width:500px;height:240px;object-fit:contain;filter:drop-shadow(0 10px 35px rgba(232,0,13,.22));transition:transform .5s cubic-bezier(.25,.46,.45,.94);position:relative;z-index:1}
+.bk:hover .bkimg img{transform:scale(1.05) translateY(-5px)}
+.bkinfo{padding:2.5rem 3rem;display:flex;flex-direction:column;justify-content:center}
+.bk-tr{display:flex;align-items:center;gap:.65rem;margin-bottom:.8rem}
+.bk-series{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:600}
+.bk-bdg{font-size:.56rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .6rem;border-radius:3px}
+.bk-bdg.r{background:var(--red);color:#fff}
+.bk-bdg.o{background:var(--accent);color:#fff}
+.bk-bdg.p{background:#7C3AED;color:#fff}
+.bk-name{font-family:'Barlow Condensed',sans-serif;font-size:3.2rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:#fff;line-height:.88;margin-bottom:.5rem}
+.bk-pr{display:flex;align-items:baseline;gap:.4rem;margin-bottom:1.8rem}
+.bk-pr-from{font-size:.68rem;color:rgba(255,255,255,.35);letter-spacing:.08em;text-transform:uppercase}
+.bk-pr-v{font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700;color:#fff}
+.bk-pr-note{font-size:.62rem;color:rgba(255,255,255,.25)}
+.bk-sg{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-bottom:1.5rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.07)}
+.bkspec{background:var(--dark2);padding:.75rem .8rem}
+.bkspec-v{font-family:'Rajdhani',sans-serif;font-size:1.05rem;font-weight:700;color:var(--red);line-height:1}
+.bkspec-l{font-size:.58rem;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:2px}
+.bk-tbl{width:100%;border-collapse:collapse;margin-bottom:1.75rem}
+.bk-tbl tr{border-bottom:1px solid rgba(255,255,255,.04)}
+.bk-tbl td{padding:.42rem 0;font-size:.75rem}
+.bk-tbl td:first-child{color:rgba(255,255,255,.35)}
+.bk-tbl td:last-child{color:rgba(255,255,255,.82);text-align:right;font-weight:500}
+.bk-acts{display:flex;gap:.65rem;flex-wrap:wrap}
+.bb{background:var(--red);color:#fff;padding:.6rem 1.5rem;border-radius:4px;font-size:.76rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:none;transition:background .2s;display:inline-flex;align-items:center;gap:.3rem}
+.bb:hover{background:var(--red-dk)}
+.bg{background:transparent;color:rgba(255,255,255,.65);padding:.6rem 1.2rem;border-radius:4px;font-size:.76rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:none;transition:all .2s;border:1px solid rgba(255,255,255,.13);display:inline-flex;align-items:center;gap:.3rem}
+.bg:hover{border-color:rgba(255,255,255,.35);color:#fff}
+.bk-disc{margin-top:2.5rem;font-size:.68rem;color:rgba(255,255,255,.2);border-top:1px solid rgba(255,255,255,.06);padding-top:1.25rem}
+
+/* CITIES MARQUEE */
+.cmq{background:var(--bg3);padding:3rem 0;overflow:hidden}
+.cmq-lbl{text-align:center;font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:1.75rem}
+.cmq-track{display:flex}
+.cmq-inner{display:flex;gap:3rem;flex-shrink:0;padding-right:3rem;animation:cmqA 20s linear infinite;white-space:nowrap;align-items:center}
+@keyframes cmqA{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+.ci{display:inline-flex;align-items:center;gap:.8rem}
+.ci-name{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--charcoal)}
+.ci-dot{width:5px;height:5px;border-radius:50%;background:var(--red)}
+.ci-dist{font-size:.65rem;color:var(--muted);letter-spacing:.08em}
+
+/* ABOUT */
+#about{background:#fff}
+.abt-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.abt-img-wrap{position:relative}
+.abt-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;display:block;background:var(--bg3)}
+.abt-overlay{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--red);color:#fff;padding:1.25rem 1.75rem;border-radius:5px}
+.ao-n{font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:800;line-height:1}
+.ao-t{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;opacity:.85;margin-top:3px}
+.abt-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
+.as{background:var(--bg3);padding:1.2rem 1rem;border-radius:5px;text-align:center}
+.as-n{font-family:'Rajdhani',sans-serif;font-size:1.75rem;font-weight:700;color:var(--red);line-height:1}
+.as-l{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.abt-text p{font-size:.92rem;color:var(--muted);line-height:1.8;margin-bottom:1.2rem}
+.abt-addr{background:var(--bg3);border-left:3px solid var(--red);padding:1.4rem 1.5rem;border-radius:0 5px 5px 0;margin-top:2rem}
+.aa-lbl{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:.65rem}
+.aa-txt{font-size:.86rem;color:var(--text);line-height:1.8}
+.aa-txt a{color:var(--red);text-decoration:none;font-weight:600}
+
+/* WHY */
+#why{background:var(--bg3)}
+.why-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.wc{background:#fff;border-radius:7px;padding:1.75rem 1.5rem;border:1px solid var(--border);transition:all .3s}
+.wc:hover{border-color:var(--red);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.07)}
+.wi{width:44px;height:44px;background:rgba(232,0,13,.08);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.1rem}
+.wt{font-family:'Rajdhani',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--dark);margin-bottom:.55rem}
+.wd{font-size:.81rem;color:var(--muted);line-height:1.7}
+
+/* ENQUIRY */
+#enq{background:var(--dark2);padding:5.5rem 5%}
+.enq-g{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start}
+.enq-l h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,4vw,3.6rem);font-weight:800;text-transform:uppercase;line-height:.93;color:#fff;margin-bottom:1.2rem}
+.enq-l h2 span{color:var(--red)}
+.enq-l p{font-size:.9rem;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:2rem}
+.ectl{display:flex;flex-direction:column;gap:.9rem;margin-top:1.5rem}
+.ec{display:flex;align-items:center;gap:.9rem;padding:.95rem 1.1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:5px;text-decoration:none;cursor:none;transition:all .2s}
+.ec:hover{background:rgba(232,0,13,.1);border-color:rgba(232,0,13,.3)}
+.ec-ico{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ec-ico.cl{background:rgba(26,138,74,.18)}
+.ec-ico.wa{background:rgba(37,211,102,.18)}
+.ec-ico.ig{background:rgba(225,48,108,.18)}
+.ec-lbl{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:2px}
+.ec-v{font-size:.86rem;font-weight:600;color:#fff}
+.enq-form-box{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:9px;padding:2.25rem}
+.ef-title{font-family:'Rajdhani',sans-serif;font-size:1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#fff;margin-bottom:.35rem}
+.ef-sub{font-size:.74rem;color:rgba(255,255,255,.35);margin-bottom:1.75rem}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:.9rem}
+.fg{display:flex;flex-direction:column;gap:.35rem;margin-bottom:.9rem}
+.flbl{font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:500}
+.fi{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:.65rem .9rem;font-size:.85rem;color:#fff;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;cursor:none;width:100%}
+.fi::placeholder{color:rgba(255,255,255,.22)}
+.fi:focus{border-color:var(--red);background:rgba(232,0,13,.05)}
+select.fi option{background:#1a1a1a;color:#fff}
+textarea.fi{resize:vertical;min-height:85px}
+.fsub{width:100%;background:var(--red);color:#fff;border:none;padding:.85rem 2rem;border-radius:4px;font-size:.85rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;cursor:none;transition:background .2s;font-family:'Inter',sans-serif;margin-top:.25rem}
+.fsub:hover{background:var(--red-dk)}
+.fsuc{display:none;text-align:center;padding:2rem 1rem;color:rgba(255,255,255,.75);font-size:.88rem;line-height:1.7}
+.fsuc strong{color:var(--red);display:block;font-size:1.25rem;margin-bottom:.5rem}
+
+/* SOCIAL STRIP */
+.ss{background:var(--red);padding:1.75rem 5%;display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap}
+.ssi{display:flex;align-items:center;gap:.7rem;text-decoration:none;cursor:none;color:#fff;transition:opacity .2s}
+.ssi:hover{opacity:.82}
+.ssi-ic{width:40px;height:40px;background:rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ssi-txt strong{display:block;font-weight:700;font-size:.88rem;letter-spacing:.03em}
+.ssi-txt span{font-size:.7rem;opacity:.8}
+
+/* FOOTER */
+footer{background:#070707;padding:3.5rem 5% 1.75rem;color:rgba(255,255,255,.45)}
+.ft{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+.fb-l .fb-brand{display:flex;align-items:center;gap:10px;margin-bottom:.9rem}
+.fb-l .fb-brand img{height:24px;filter:brightness(0) invert(1)}
+.fb-l .fb-brand-txt{font-family:'Rajdhani',sans-serif;font-size:.88rem;font-weight:700;color:#fff;letter-spacing:.09em;text-transform:uppercase;line-height:1.2}
+.fb-l .fb-brand-txt small{font-size:.55rem;font-weight:400;opacity:.5;display:block;letter-spacing:.12em}
+.fb-l p{font-size:.76rem;line-height:1.8;max-width:210px}
+.fc h4{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:1.1rem;font-weight:600}
+.fc a{display:block;font-size:.78rem;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:.55rem;transition:color .2s;cursor:none}
+.fc a:hover{color:#fff}
+.fb-bot{border-top:1px solid rgba(255,255,255,.06);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.fb-bot p{font-size:.7rem}
+.fb-bot a{color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
+.fb-bot a:hover{color:var(--red)}
+
+/* FLOAT */
+.fl-a{position:fixed;bottom:1.75rem;right:1.75rem;z-index:900;display:flex;flex-direction:column;gap:.65rem;align-items:flex-end}
+.flb{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;cursor:none;box-shadow:0 4px 16px rgba(0,0,0,.22);transition:transform .2s}
+.flb:hover{transform:scale(1.1)}
+.flb.wa{background:#25D366}
+.flb.cl{background:var(--red)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+.rv-l{opacity:0;transform:translateX(-28px);transition:opacity .6s ease,transform .6s ease}
+.rv-l.in{opacity:1;transform:translateX(0)}
+.rv-r{opacity:0;transform:translateX(28px);transition:opacity .6s ease,transform .6s ease}
+.rv-r.in{opacity:1;transform:translateX(0)}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .ft{grid-template-columns:1fr 1fr}
+  .abt-grid{grid-template-columns:1fr;gap:3rem}
+  .enq-g{grid-template-columns:1fr;gap:3rem}
+}
+@media(max-width:900px){
+  .nl{display:none}
+  .ham{display:flex}
+  .bk,.bk.flip{grid-template-columns:1fr;direction:ltr}
+  .bkimg{min-height:240px}
+  .bkinfo{padding:2rem 1.75rem}
+  section{padding:4rem 5%}
+  #bikes{padding:4rem 5%}
+  #enq{padding:4rem 5%}
+  .why-g{grid-template-columns:1fr 1fr}
+  .ft{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .why-g{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  .ft{grid-template-columns:1fr}
+  .ss{gap:1.5rem}
+  .hh1{font-size:2.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cur"></div>
+<div id="cur-r"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-wrap">
+    <img src="https://www.revoltmotors.com/images/revolt-motors-logo.svg" alt="Revolt"/>
+    <div class="ld-sep"></div>
+    <div class="ld-info">AK Enterprises<small>Revolt Hub · Chhibramau</small></div>
+  </div>
+  <div class="ld-prog"><div class="ld-bar" id="lbar"></div></div>
+  <div class="ld-note">Official Revolt Dealer, Kannauj UP</div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nb">
+    <img src="https://www.revoltmotors.com/images/revolt-motors-logo.svg" alt="Revolt"/>
+    <div class="nb-div"></div>
+    <div class="nb-txt">AK Enterprises<small>Revolt Hub Chhibramau</small></div>
+  </a>
+  <div class="nl">
+    <a href="#bikes">Bikes</a>
+    <a href="#about">About</a>
+    <a href="#enq">Enquiry</a>
+    <a href="tel:+919453291470">📞 9453291470</a>
+    <a href="https://www.revoltmotors.com/test-ride" target="_blank" class="nbtn">Test Ride</a>
+  </div>
+  <div class="ham" id="ham" onclick="toggleMM()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mm" id="mm">
+  <a href="#bikes" onclick="toggleMM()">Bikes</a>
+  <a href="#about" onclick="toggleMM()">About</a>
+  <a href="#enq" onclick="toggleMM()">Enquiry</a>
+  <a href="tel:+919453291470" onclick="toggleMM()">📞 9453291470</a>
+  <a href="https://www.revoltmotors.com/book" target="_blank" onclick="toggleMM()">Book Now</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <img class="hbg"
+    src="https://www.revoltmotors.com/_next/image?url=https%3A%2F%2Fs3.ap-south-1.amazonaws.com%2Frevoltmotors%2Fadminpanel%2Fhardik-01.webp_100326181755c62e146bf239&w=1920&q=75"
+    alt="Revolt Electric Motorcycle" loading="eager" fetchpriority="high"
+    onerror="this.src='https://revoltmotors.s3.ap-south-1.amazonaws.com/assets/images/ev-gallery/rv400_03.png'"/>
+  <div class="hov1"></div>
+  <div class="hov2"></div>
+  <div class="hc">
+    <div class="hbadge"><span>Official Revolt Dealer · Kannauj, UP</span></div>
+    <h1 class="hh1">Ride The<br><em>Electric</em><br>Revolution</h1>
+    <p class="hsub">AK Enterprises brings Revolt's electric motorcycles to Chhibramau. Zero fuel costs. Zero emissions. Pure performance — serving Kannauj, Farrukhabad, Hardoi &amp; Auraiya.</p>
+    <div class="hbtns">
+      <a href="https://www.revoltmotors.com/book" target="_blank" class="br">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Book Now
+      </a>
+      <a href="https://www.revoltmotors.com/test-ride" target="_blank" class="bw">Schedule Test Ride</a>
+    </div>
+  </div>
+  <div class="hstats">
+    <div class="hs"><div class="hs-n">150km</div><div class="hs-l">Max Range</div></div>
+    <div class="hs"><div class="hs-n">₹99K</div><div class="hs-l">Starting</div></div>
+    <div class="hs"><div class="hs-n">5</div><div class="hs-l">Models</div></div>
+  </div>
+  <div class="hscroll"><div class="sbar"></div><span>Scroll</span></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq">
+  <div class="mq-track">
+    <div class="mq-inner" id="mqi1">
+      <span class="mq-item"><span class="mq-dot"></span>Zero Fuel Cost</span>
+      <span class="mq-item"><span class="mq-dot"></span>Book Now</span>
+      <span class="mq-item"><span class="mq-dot"></span>Test Ride Free</span>
+      <span class="mq-item"><span class="mq-dot"></span>Official Dealer</span>
+      <span class="mq-item"><span class="mq-dot"></span>Kannauj</span>
+      <span class="mq-item"><span class="mq-dot"></span>Farrukhabad</span>
+      <span class="mq-item"><span class="mq-dot"></span>Hardoi</span>
+      <span class="mq-item"><span class="mq-dot"></span>Auraiya</span>
+      <span class="mq-item"><span class="mq-dot"></span>AK Enterprises</span>
+      <span class="mq-item"><span class="mq-dot"></span>Chhibramau</span>
+      <span class="mq-item"><span class="mq-dot"></span>EMI Available</span>
+      <span class="mq-item"><span class="mq-dot"></span>₹99,999 Onwards</span>
+    </div>
+    <div class="mq-inner" aria-hidden="true">
+      <span class="mq-item"><span class="mq-dot"></span>Zero Fuel Cost</span>
+      <span class="mq-item"><span class="mq-dot"></span>Book Now</span>
+      <span class="mq-item"><span class="mq-dot"></span>Test Ride Free</span>
+      <span class="mq-item"><span class="mq-dot"></span>Official Dealer</span>
+      <span class="mq-item"><span class="mq-dot"></span>Kannauj</span>
+      <span class="mq-item"><span class="mq-dot"></span>Farrukhabad</span>
+      <span class="mq-item"><span class="mq-dot"></span>Hardoi</span>
+      <span class="mq-item"><span class="mq-dot"></span>Auraiya</span>
+      <span class="mq-item"><span class="mq-dot"></span>AK Enterprises</span>
+      <span class="mq-item"><span class="mq-dot"></span>Chhibramau</span>
+      <span class="mq-item"><span class="mq-dot"></span>EMI Available</span>
+      <span class="mq-item"><span class="mq-dot"></span>₹99,999 Onwards</span>
+    </div>
+  </div>
+</div>
+
+<!-- BIKES -->
+<section id="bikes">
+  <div class="sl rv"><div class="sl-line"></div><span>Our Range</span></div>
+  <h2 class="sh rv" style="color:#fff">Electric <span>Motorcycles</span></h2>
+  <p class="ssub rv" style="color:rgba(255,255,255,.45)">Five models. One revolution. Pick yours and ride clean across Uttar Pradesh.</p>
+
+  <div class="bk-list">
+
+    <!-- RV1 -->
+    <div class="bk rv">
+      <div class="bkimg">
+        <img src="https://www.revoltmotors.com/_next/image?url=%2Fimages%2Frv1%2Frv1_cosmos_red.png%3Fv%3D2&w=1024&q=75" alt="Revolt RV1" loading="lazy"/>
+      </div>
+      <div class="bkinfo">
+        <div class="bk-tr"><span class="bk-series">Entry Series</span></div>
+        <div class="bk-name">RV1</div>
+        <div class="bk-pr"><span class="bk-pr-from">From</span><span class="bk-pr-v">₹99,999</span><span class="bk-pr-note">*ex-showroom</span></div>
+        <div class="bk-sg">
+          <div class="bkspec"><div class="bkspec-v">80km</div><div class="bkspec-l">Range</div></div>
+          <div class="bkspec"><div class="bkspec-v">55km/h</div><div class="bkspec-l">Top Speed</div></div>
+          <div class="bkspec"><div class="bkspec-v">2.2kWh</div><div class="bkspec-l">Battery</div></div>
+          <div class="bkspec"><div class="bkspec-v">2.8kW</div><div class="bkspec-l">Motor</div></div>
+        </div>
+        <table class="bk-tbl">
+          <tr><td>Segment</td><td>Commuter</td></tr>
+          <tr><td>Kerb Weight</td><td>105 kg</td></tr>
+          <tr><td>Ground Clearance</td><td>190 mm</td></tr>
+          <tr><td>Charging (0–80%)</td><td>2 hr 15 min</td></tr>
+          <tr><td>Torque at Wheel</td><td>128 Nm</td></tr>
+          <tr><td>Reverse Mode</td><td>Yes</td></tr>
+        </table>
+        <div class="bk-acts">
+          <a href="https://www.revoltmotors.com/book?model=RV1" target="_blank" class="bb">Book Now →</a>
+          <a href="https://www.revoltmotors.com/rv1" target="_blank" class="bg">Explore</a>
+          <a href="https://www.revoltmotors.com/test-ride?model=RV1" target="_blank" class="bg">Test Ride</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RV1+ -->
+    <div class="bk flip rv">
+      <div class="bkimg">
+        <img src="https://www.revoltmotors.com/_next/image?url=%2Fimages%2Frv1%2Frvplus_titan_red.png%3Fv%3D2&w=1024&q=75" alt="Revolt RV1+" loading="lazy"/>
+      </div>
+      <div class="bkinfo">
+        <div class="bk-tr"><span class="bk-series">Entry Plus</span><span class="bk-bdg r">Popular</span></div>
+        <div class="bk-name">RV1+</div>
+        <div class="bk-pr"><span class="bk-pr-from">From</span><span class="bk-pr-v">₹1,04,990</span><span class="bk-pr-note">*ex-showroom</span></div>
+        <div class="bk-sg">
+          <div class="bkspec"><div class="bkspec-v">100km</div><div class="bkspec-l">Range</div></div>
+          <div class="bkspec"><div class="bkspec-v">65km/h</div><div class="bkspec-l">Top Speed</div></div>
+          <div class="bkspec"><div class="bkspec-v">3.24kWh</div><div class="bkspec-l">Battery</div></div>
+          <div class="bkspec"><div class="bkspec-v">2.8kW</div><div class="bkspec-l">Motor</div></div>
+        </div>
+        <table class="bk-tbl">
+          <tr><td>Segment</td><td>Commuter</td></tr>
+          <tr><td>Kerb Weight</td><td>106 kg</td></tr>
+          <tr><td>Ground Clearance</td><td>190 mm</td></tr>
+          <tr><td>Fast Charge (0–80%)</td><td>80 min</td></tr>
+          <tr><td>Torque at Wheel</td><td>128 Nm</td></tr>
+          <tr><td>GPS</td><td>Optional</td></tr>
+        </table>
+        <div class="bk-acts">
+          <a href="https://www.revoltmotors.com/book?model=RV1%2B" target="_blank" class="bb">Book Now →</a>
+          <a href="https://www.revoltmotors.com/rv1plus" target="_blank" class="bg">Explore</a>
+          <a href="https://www.revoltmotors.com/test-ride?model=RV1%2B" target="_blank" class="bg">Test Ride</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RV BlazeX -->
+    <div class="bk rv">
+      <div class="bkimg">
+        <img src="https://www.revoltmotors.com/_next/image?url=%2Fimages%2Fblazex%2Frv-blazex-sterling-silver.png%3Fv%3D2&w=1024&q=75" alt="Revolt RV BlazeX" loading="lazy"/>
+      </div>
+      <div class="bkinfo">
+        <div class="bk-tr"><span class="bk-series">Sports Series</span><span class="bk-bdg o">New</span></div>
+        <div class="bk-name">RV BlazeX</div>
+        <div class="bk-pr"><span class="bk-pr-from">From</span><span class="bk-pr-v">₹1,19,990</span><span class="bk-pr-note">*ex-showroom</span></div>
+        <div class="bk-sg">
+          <div class="bkspec"><div class="bkspec-v">150km</div><div class="bkspec-l">Range</div></div>
+          <div class="bkspec"><div class="bkspec-v">85km/h</div><div class="bkspec-l">Top Speed</div></div>
+          <div class="bkspec"><div class="bkspec-v">4.5kWh</div><div class="bkspec-l">Battery</div></div>
+          <div class="bkspec"><div class="bkspec-v">4.5kW</div><div class="bkspec-l">Motor</div></div>
+        </div>
+        <table class="bk-tbl">
+          <tr><td>Segment</td><td>Sports Commuter</td></tr>
+          <tr><td>Payload Capacity</td><td>190 kg</td></tr>
+          <tr><td>Ride Modes</td><td>Eco / Normal / Sport</td></tr>
+          <tr><td>App Connectivity</td><td>MyRevolt App</td></tr>
+          <tr><td>AI Sound Modes</td><td>4 Sounds</td></tr>
+          <tr><td>GPS Tracking</td><td>Yes</td></tr>
+        </table>
+        <div class="bk-acts">
+          <a href="https://www.revoltmotors.com/book?model=RV%20BlazeX" target="_blank" class="bb">Book Now →</a>
+          <a href="https://www.revoltmotors.com/rv-blazex" target="_blank" class="bg">Explore</a>
+          <a href="https://www.revoltmotors.com/test-ride?model=RV%20BlazeX" target="_blank" class="bg">Test Ride</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RV400 BRZ -->
+    <!-- <div class="bk flip rv">
+      <div class="bkimg">
+        <img src="https://www.revoltmotors.com/_next/image?url=%2Fimages%2FHomePageBike%2FRVBRZ_D.webp&w=1920&q=75" alt="Revolt RV400 BRZ" loading="lazy"/>
+      </div>
+      <div class="bkinfo">
+        <div class="bk-tr"><span class="bk-series">Performance</span><span class="bk-bdg p">BRZ Edition</span></div>
+        <div class="bk-name">RV400 BRZ</div>
+        <div class="bk-pr"><span class="bk-pr-from">From</span><span class="bk-pr-v">₹1,29,950</span><span class="bk-pr-note">*ex-showroom</span></div>
+        <div class="bk-sg">
+          <div class="bkspec"><div class="bkspec-v">150km</div><div class="bkspec-l">Range</div></div>
+          <div class="bkspec"><div class="bkspec-v">85km/h</div><div class="bkspec-l">Top Speed</div></div>
+          <div class="bkspec"><div class="bkspec-v">128Nm</div><div class="bkspec-l">Torque</div></div>
+          <div class="bkspec"><div class="bkspec-v">4.5kW</div><div class="bkspec-l">Motor</div></div>
+        </div>
+        <table class="bk-tbl">
+          <tr><td>Segment</td><td>Performance</td></tr>
+          <tr><td>Special Edition</td><td>BRZ Livery</td></tr>
+          <tr><td>Payload Capacity</td><td>190 kg</td></tr>
+          <tr><td>Ride Modes</td><td>Eco / Normal / Sport</td></tr>
+          <tr><td>App Connectivity</td><td>MyRevolt App</td></tr>
+          <tr><td>GPS Tracking</td><td>Yes</td></tr>
+        </table>
+        <div class="bk-acts">
+          <a href="https://www.revoltmotors.com/book?model=RV400%20BRZ" target="_blank" class="bb">Book Now →</a>
+          <a href="https://www.revoltmotors.com/rv400-brz" target="_blank" class="bg">Explore</a>
+          <a href="https://www.revoltmotors.com/test-ride?model=RV400%20BRZ" target="_blank" class="bg">Test Ride</a>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- RV400 FLAGSHIP -->
+    <!-- <div class="bk rv">
+      <div class="bkimg">
+        <img src="https://www.revoltmotors.com/_next/image?url=%2Fimages%2FHomePageBike%2FRV400_D.webp&w=1920&q=75" alt="Revolt RV400 Flagship" loading="lazy"/>
+      </div>
+      <div class="bkinfo">
+        <div class="bk-tr"><span class="bk-series">Flagship</span><span class="bk-bdg r">Best Seller</span></div>
+        <div class="bk-name">RV400</div>
+        <div class="bk-pr"><span class="bk-pr-from">From</span><span class="bk-pr-v">₹1,39,950</span><span class="bk-pr-note">*ex-showroom</span></div>
+        <div class="bk-sg">
+          <div class="bkspec"><div class="bkspec-v">150km</div><div class="bkspec-l">Range</div></div>
+          <div class="bkspec"><div class="bkspec-v">85km/h</div><div class="bkspec-l">Top Speed</div></div>
+          <div class="bkspec"><div class="bkspec-v">128Nm</div><div class="bkspec-l">Torque</div></div>
+          <div class="bkspec"><div class="bkspec-v">4 Sounds</div><div class="bkspec-l">AI Audio</div></div>
+        </div>
+        <table class="bk-tbl">
+          <tr><td>Ride Modes</td><td>Eco / Normal / Sport</td></tr>
+          <tr><td>Sound Modes</td><td>Revolt / Rebel / Roar / Rage</td></tr>
+          <tr><td>Fast Charge (0–80%)</td><td>80 min</td></tr>
+          <tr><td>App Connectivity</td><td>MyRevolt App</td></tr>
+          <tr><td>GPS Tracking</td><td>Yes</td></tr>
+          <tr><td>Reverse Mode</td><td>Yes</td></tr>
+        </table>
+        <div class="bk-acts">
+          <a href="https://www.revoltmotors.com/book?model=RV400" target="_blank" class="bb">Book Now →</a>
+          <a href="https://www.revoltmotors.com/rv400" target="_blank" class="bg">Explore</a>
+          <a href="https://www.revoltmotors.com/test-ride?model=RV400" target="_blank" class="bg">Test Ride</a>
+        </div>
+      </div>
+    </div>
+
+  </div> -->
+  <p class="bk-disc">* All prices are ex-showroom. On-road price for Kannauj / UP may vary. Contact AK Enterprises for exact pricing, registration &amp; insurance details.</p>
+</section>
+
+<!-- CITIES MARQUEE -->
+<div class="cmq">
+  <div class="cmq-lbl">Districts &amp; Cities We Serve Across Uttar Pradesh</div>
+  <div class="cmq-track">
+    <div class="cmq-inner" id="cmqi">
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Kannauj</span><span class="ci-dist">HQ</span></span>
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Chhibramau</span><span class="ci-dist">Showroom</span></span>
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Farrukhabad</span><span class="ci-dist">~45 km</span></span>
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Fatehgarh</span><span class="ci-dist">Farrukhabad</span></span>
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Auraiya</span><span class="ci-dist">~60 km</span></span>
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Dibiyapur</span><span class="ci-dist">Auraiya</span></span>
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Hardoi</span><span class="ci-dist">~70 km</span></span>
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Sandila</span><span class="ci-dist">Hardoi</span></span>
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Gursahaiganj</span><span class="ci-dist">Kannauj</span></span>
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Talgram</span><span class="ci-dist">Kannauj</span></span>
+    </div>
+    <div class="cmq-inner" aria-hidden="true">
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Kannauj</span><span class="ci-dist">HQ</span></span>
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Chhibramau</span><span class="ci-dist">Showroom</span></span>
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Farrukhabad</span><span class="ci-dist">~45 km</span></span>
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Fatehgarh</span><span class="ci-dist">Farrukhabad</span></span>
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Auraiya</span><span class="ci-dist">~60 km</span></span>
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Dibiyapur</span><span class="ci-dist">Auraiya</span></span>
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Hardoi</span><span class="ci-dist">~70 km</span></span>
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Sandila</span><span class="ci-dist">Hardoi</span></span>
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Gursahaiganj</span><span class="ci-dist">Kannauj</span></span>
+      <span class="ci"><span class="ci-dot"></span><span class="ci-name">Talgram</span><span class="ci-dist">Kannauj</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="abt-grid">
+    <div class="rv-l">
+      <div style="position:relative;display:inline-block;width:100%">
+        <img class="abt-img"
+          src="https://revoltmotors.s3.ap-south-1.amazonaws.com/assets/images/ev-gallery/rv400_01.png"
+          onerror="this.src='https://www.revoltmotors.com/_next/image?url=https%3A%2F%2Frevoltmotors.s3.ap-south-1.amazonaws.com%2Fassets%2Fimages%2Fev-gallery%2Frv400_01.png&w=1536&q=75'"
+          alt="Revolt RV400 at AK Enterprises Chhibramau" loading="lazy"/>
+        <div class="abt-overlay">
+          <div class="ao-n">Since<br>2024</div>
+          <div class="ao-t">Authorised Dealer</div>
+        </div>
+      </div>
+      <div class="abt-stats">
+        <div class="as"><div class="as-n">5</div><div class="as-l">Models</div></div>
+        <div class="as"><div class="as-n">4</div><div class="as-l">Districts</div></div>
+        <div class="as"><div class="as-n">₹0</div><div class="as-l">Fuel Cost</div></div>
+      </div>
+    </div>
+    <div class="rv-r">
+      <div class="sl"><div class="sl-line"></div><span>About Us</span></div>
+      <h2 class="sh">AK <span>Enterprises</span><br>Revolt Hub</h2>
+      <div class="abt-text">
+        <p>We are the official authorised Revolt Motors dealership for the Kannauj region, operating as <strong>Revolt Hub Chhibramau</strong>. Our showroom at West Bypass near HDFC Bank Bajar Kalan is your gateway to electric mobility in western Uttar Pradesh.</p>
+        <p>From your first test ride to financing, registration, delivery, and after-sales service — our trained team is here to make your electric journey smooth and rewarding. We proudly serve Kannauj, Farrukhabad, Hardoi, and Auraiya districts.</p>
+      </div>
+      <div class="abt-addr">
+        <div class="aa-lbl">📍 Our Showroom</div>
+        <div class="aa-txt">
+          West Bypass, Near HDFC Bank, Bajar Kalan<br>
+          Chhibramau, Kannauj — 209721, Uttar Pradesh<br><br>
+          📞 <a href="tel:+919453291470">+91 9453291470</a> &nbsp;·&nbsp;
+          <a href="https://wa.me/919453291470" target="_blank">💬 WhatsApp</a><br>
+          🕐 Mon–Sun: 10:00 AM – 7:00 PM
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY EV -->
+<section id="why" style="background:var(--bg3)">
+  <div class="sl rv"><div class="sl-line"></div><span>Go Electric</span></div>
+  <h2 class="sh rv">The <span>Smart</span> Choice</h2>
+  <div class="why-g">
+    <div class="wc rv"><div class="wi">⚡</div><div class="wt">Save ₹2,000+/Month</div><div class="wd">Charging a Revolt costs just ₹15–25 for the same distance as ₹100 worth of petrol. Save ₹24,000+ every year effortlessly.</div></div>
+    <div class="wc rv"><div class="wi">🌿</div><div class="wt">Zero Emissions</div><div class="wd">No exhaust. No pollution. Ride through Chhibramau's streets and contribute to a cleaner UP for your family and community.</div></div>
+    <div class="wc rv"><div class="wi">🔧</div><div class="wt">Near-Zero Maintenance</div><div class="wd">No engine oil. No spark plugs. No gearbox servicing. Electric motors have far fewer moving parts — meaning far fewer bills.</div></div>
+    <div class="wc rv"><div class="wi">📱</div><div class="wt">Smart App Features</div><div class="wd">MyRevolt App for ride mode selection (Eco/Normal/Sport), GPS tracking, and unique AI engine sounds — Revolt, Rebel, Roar &amp; Rage.</div></div>
+    <div class="wc rv"><div class="wi">💰</div><div class="wt">Easy EMI Options</div><div class="wd">Finance through Jana Bank, IDFC, Bajaj Finserv, Axis &amp; more. We assist with documentation and UP state EV incentives.</div></div>
+    <div class="wc rv"><div class="wi">🛣️</div><div class="wt">Built for Indian Roads</div><div class="wd">190mm ground clearance, robust suspension, all-weather charging ecosystem — engineered for UP's roads, monsoons &amp; traffic.</div></div>
+  </div>
+</section>
+
+<!-- ENQUIRY FORM -->
+<section id="enq" style="background:var(--dark2);padding:5.5rem 5%">
+  <div class="enq-g">
+    <div class="rv-l">
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,4vw,3.6rem);font-weight:800;text-transform:uppercase;line-height:.93;color:#fff;margin-bottom:1.2rem">Get In <span style="color:var(--red)">Touch</span><br>With Us</h2>
+      <p style="font-size:.9rem;color:rgba(255,255,255,.5);line-height:1.8">Ready to go electric? Fill the form and our team at AK Enterprises Chhibramau will contact you within 24 hours. Or reach us directly right now.</p>
+      <div class="ectl">
+        <a href="tel:+919453291470" class="ec">
+          <div class="ec-ico cl">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1A8A4A" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.43 10.34 19.79 19.79 0 01.36 1.75 2 2 0 012.34 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.1a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div><div class="ec-lbl">Direct Call</div><div class="ec-v">+91 9453291470</div></div>
+        </a>
+        <a href="https://wa.me/919453291470?text=Hi!%20I%20am%20interested%20in%20Revolt%20bikes%20at%20AK%20Enterprises%20Chhibramau." target="_blank" class="ec">
+          <div class="ec-ico wa">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.868-1.426A9.945 9.945 0 0012 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2zm0 18a7.95 7.95 0 01-4.071-1.118l-.291-.173-3.018.883.849-3.1-.19-.309A7.977 7.977 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+          </div>
+          <div><div class="ec-lbl">WhatsApp</div><div class="ec-v">+91 9453291470</div></div>
+        </a>
+        <a href="https://www.instagram.com/revolthub_chhibramau_up74?igsh=MmU1ZXFmZ3AyazVj" target="_blank" class="ec">
+          <div class="ec-ico ig">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div><div class="ec-lbl">Instagram</div><div class="ec-v">@revolthub_chhibramau_up74
+z</div></div>
+        </a>
+      </div>
+    </div>
+    <div class="rv-r">
+      <div class="enq-form-box">
+        <div class="ef-title">Send an Enquiry</div>
+        <div class="ef-sub">We'll call you back within 24 hours · 100% Free</div>
+        <div id="ffields">
+          <div class="frow">
+            <div class="fg"><label class="flbl">Full Name *</label><input type="text" class="fi" id="fn" placeholder="Your full name"/></div>
+            <div class="fg"><label class="flbl">Mobile Number *</label><input type="tel" class="fi" id="fp" placeholder="+91 XXXXX XXXXX"/></div>
+          </div>
+          <div class="frow">
+            <div class="fg">
+              <label class="flbl">City / District</label>
+              <select class="fi" id="fc">
+                <option value="">Select city</option>
+                <option>Chhibramau</option><option>Kannauj</option>
+                <option>Farrukhabad</option><option>Fatehgarh</option>
+                <option>Auraiya</option><option>Dibiyapur</option>
+                <option>Hardoi</option><option>Sandila</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label class="flbl">Bike of Interest</label>
+              <select class="fi" id="fm">
+                <option value="">Select model</option>
+                <option>Revolt RV1</option><option>Revolt RV1+</option>
+                <option>RV BlazeX</option><option>RV400 BRZ</option>
+                <option>RV400 Flagship</option><option>Not decided</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label class="flbl">Enquiry Type</label>
+            <select class="fi" id="ft">
+              <option value="">Select type</option>
+              <option>Book a Bike</option><option>Schedule Test Ride</option>
+              <option>Price &amp; EMI Details</option><option>Exchange / Trade-In</option>
+              <option>After-Sales / Service</option><option>General Enquiry</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label class="flbl">Your Message (Optional)</label>
+            <textarea class="fi" id="fmsg" placeholder="Tell us how we can help…"></textarea>
+          </div>
+          <button class="fsub" onclick="doSubmit()">Send Enquiry →</button>
+        </div>
+        <div class="fsuc" id="fsuc">
+          <strong>✅ Enquiry Received!</strong>
+          Thank you <span id="fsucname"></span>! Our team will call you at <span id="fsucph"></span> within 24 hours.<br><br>
+          <small style="color:rgba(255,255,255,.3)">A WhatsApp message is being opened for instant confirmation.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL STRIP -->
+<div class="ss">
+  <a href="tel:+919453291470" class="ssi">
+    <div class="ssi-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.43 10.34 19.79 19.79 0 01.36 1.75 2 2 0 012.34 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.1a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+    <div class="ssi-txt"><strong>Call Now</strong><span>+91 9453291470</span></div>
+  </a>
+  <a href="https://wa.me/919453291470?text=Hi!%20I%20want%20to%20know%20more%20about%20Revolt%20bikes%20at%20AK%20Enterprises%2C%20Chhibramau." target="_blank" class="ssi">
+    <div class="ssi-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.868-1.426A9.945 9.945 0 0012 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2zm0 18a7.95 7.95 0 01-4.071-1.118l-.291-.173-3.018.883.849-3.1-.19-.309A7.977 7.977 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg></div>
+    <div class="ssi-txt"><strong>WhatsApp</strong><span>Chat instantly</span></div>
+  </a>
+  <a href="https://www.instagram.com/revolthub_chhibramau_up74?igsh=MmU1ZXFmZ3AyazVj" target="_blank" class="ssi">
+    <div class="ssi-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+    <div class="ssi-txt"><strong>Instagram</strong><span>@revolthub_chhibramau_up74
+</span></div>
+  </a>
+  <a href="https://www.revoltmotors.com/book" target="_blank" class="ssi">
+    <div class="ssi-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div>
+    <div class="ssi-txt"><strong>Book Online</strong><span>Official booking</span></div>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div class="fb-l">
+      <div class="fb-brand">
+        <img src="https://www.revoltmotors.com/images/revolt-motors-logo.svg" alt="Revolt"/>
+        <div class="fb-brand-txt">AK Enterprises<small>Revolt Hub Chhibramau</small></div>
+      </div>
+      <p>Official authorised Revolt dealer serving Kannauj, Farrukhabad, Hardoi &amp; Auraiya. West Bypass, Bajar Kalan, Chhibramau — 209721, UP.</p>
+    </div>
+    <div class="fc">
+      <h4>Models</h4>
+      <a href="https://www.revoltmotors.com/rv1" target="_blank">Revolt RV1</a>
+      <a href="https://www.revoltmotors.com/rv1plus" target="_blank">Revolt RV1+</a>
+      <a href="https://www.revoltmotors.com/rv-blazex" target="_blank">RV BlazeX</a>
+      <a href="https://www.revoltmotors.com/rv400-brz" target="_blank">RV400 BRZ</a>
+      <a href="https://www.revoltmotors.com/rv400" target="_blank">RV400 Flagship</a>
+    </div>
+    <div class="fc">
+      <h4>Quick Links</h4>
+      <a href="https://www.revoltmotors.com/book" target="_blank">Book Now</a>
+      <a href="https://www.revoltmotors.com/test-ride" target="_blank">Test Ride</a>
+      <a href="#enq">Enquiry Form</a>
+      <a href="#why">Why EV?</a>
+      <a href="https://www.revoltmotors.com/" target="_blank">Revolt Official</a>
+    </div>
+    <div class="fc">
+      <h4>Contact</h4>
+      <a href="tel:+919453291470">📞 +91 9453291470</a>
+      <a href="https://wa.me/919453291470" target="_blank">💬 WhatsApp</a>
+      <a href="https://www.instagram.com/revoltmotorsindia/" target="_blank">📷 Instagram</a>
+      <a href="#">📍 Chhibramau, 209721</a>
+      <a href="#">🕐 Mon–Sat: 9AM–7PM</a>
+    </div>
+  </div>
+  <div class="fb-bot">
+    <p>© 2025 AK Enterprises — Revolt Hub Chhibramau. Authorised Revolt Motors Dealer, Kannauj, UP.</p>
+    <p>Prices are indicative ex-showroom. <a href="https://www.revoltmotors.com" target="_blank">revoltmotors.com</a></p>
+  </div>
+</footer>
+
+<!-- FLOATING ACTIONS -->
+<div class="fl-a">
+  <a href="tel:+919453291470" class="flb cl" title="Call +91 9453291470">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.43 10.34 19.79 19.79 0 01.36 1.75 2 2 0 012.34 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.1a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+  </a>
+  <a href="https://wa.me/919453291470?text=Hi!%20I%20want%20to%20know%20more%20about%20Revolt%20at%20AK%20Enterprises%20Chhibramau." target="_blank" class="flb wa" title="WhatsApp +91 9453291470">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.868-1.426A9.945 9.945 0 0012 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2zm0 18a7.95 7.95 0 01-4.071-1.118l-.291-.173-3.018.883.849-3.1-.19-.309A7.977 7.977 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+  </a>
+</div>
+
+<script>
+// LOADER — fast, no lag
+(function(){
+  var bar=document.getElementById('lbar'),loader=document.getElementById('loader'),p=0;
+  var t=setInterval(function(){p=Math.min(p+Math.random()*20,100);bar.style.width=p+'%';if(p>=100)clearInterval(t);},55);
+  function hide(){loader.style.transition='opacity .45s';loader.style.opacity='0';setTimeout(function(){loader.style.display='none';},450);}
+  if(document.readyState==='complete'){setTimeout(hide,700);}
+  else{window.addEventListener('load',function(){setTimeout(hide,700);});}
+})();
+
+// CURSOR — direct no lag
+var cur=document.getElementById('cur'),curR=document.getElementById('cur-r');
+var mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',function(e){
+  mx=e.clientX;my=e.clientY;
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+});
+(function animR(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(animR);})();
+document.querySelectorAll('a,button,select,input,textarea').forEach(function(el){
+  el.addEventListener('mouseenter',function(){document.body.classList.add('hov');});
+  el.addEventListener('mouseleave',function(){document.body.classList.remove('hov');});
+});
+
+// NAV
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('s',window.scrollY>50);},{passive:true});
+
+// MOBILE MENU
+function toggleMM(){
+  document.getElementById('mm').classList.toggle('o');
+  document.getElementById('ham').classList.toggle('o');
+}
+
+// REVEAL
+var rvEls=document.querySelectorAll('.rv,.rv-l,.rv-r');
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e,i){
+    if(e.isIntersecting){setTimeout(function(){e.target.classList.add('in');},i*55);obs.unobserve(e.target);}
+  });
+},{threshold:0.1});
+rvEls.forEach(function(el){obs.observe(el);});
+
+// FORM
+function doSubmit(){
+  var name=document.getElementById('fn').value.trim();
+  var phone=document.getElementById('fp').value.trim();
+  if(!name){alert('Please enter your name.');return;}
+  if(!phone){alert('Please enter your mobile number.');return;}
+  var model=document.getElementById('fm').value||'Not selected';
+  var city=document.getElementById('fc').value||'Not specified';
+  var type=document.getElementById('ft').value||'General';
+  var msg=document.getElementById('fmsg').value||'';
+  document.getElementById('ffields').style.display='none';
+  document.getElementById('fsucname').textContent=name;
+  document.getElementById('fsucph').textContent=phone;
+  document.getElementById('fsuc').style.display='block';
+  var wa='Hi! New enquiry from AK Enterprises website\n\nName: '+name+'\nPhone: '+phone+'\nCity: '+city+'\nModel: '+model+'\nType: '+type+(msg?'\nMessage: '+msg:'');
+  setTimeout(function(){window.open('https://wa.me/919453291470?text='+encodeURIComponent(wa),'_blank');},900);
+}
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+</script>
+</body>
+</html>
